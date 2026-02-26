@@ -1,17 +1,10 @@
-# React + Vite
+# Motorreductor DC con Encoder (Datasheet Experimental)
+Ricardo Gaspar Ochoa - A00838841 - Reto dinámica
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio contiene el **datasheet** y la **caracterización experimental** de un **motorreductor de corriente continua (CC) con escobillas**, operado a **12 V**, equipado con un **encoder incremental de cuadratura (Hall)**. El objetivo es presentar especificaciones técnicas **medidas en laboratorio** (no solo datos del fabricante) y derivar curvas típicas de desempeño para apoyar selección, dimensionamiento de driver y diseño de control en lazo cerrado.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# datasheet
+## Contenido del repositorio
+- **Datasheet** (PDF / documento): especificaciones finales y tablas.
+- **Datos experimentales**: mediciones tomadas a mano (corriente, velocidad, torque, potencia).
+- **Gráficas**: curvas de velocidad–torque, corriente–torque, potencia y eficiencia.
+- **Material de apoyo**: notas del procedimiento, cálculos y fórmulas utilizadas.
