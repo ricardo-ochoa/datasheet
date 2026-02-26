@@ -1,0 +1,138 @@
+.smWrap {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(86px, auto);
+}
+
+
+.smTile {
+  background: #e9e9e9;
+  border-radius: 16px;
+  padding: 18px;
+  border: 3px solid #e9e9e9;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* NUEVO */
+  position: relative;
+  overflow: hidden;
+}
+.smTile:hover {
+  border: 3px solid rgba(0, 0, 0, 1);
+}
+
+.smTile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--tile-bg, none);
+  background-size: cover;
+  background-position: var(--tile-bg-pos, center);
+  opacity: var(--tile-bg-opacity, 0.22);
+  z-index: 0;
+}
+
+/* NUEVO: capa para legibilidad */
+.smTile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--tile-overlay, rgba(255, 255, 255, 0.35));
+  z-index: 0;
+}
+
+/* NUEVO: asegurar que el contenido quede arriba del fondo */
+.smTile > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.smTile--clickable {
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.smTile--clickable:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.smTile--clickable:focus {
+  outline: 3px solid rgba(0, 0, 0, 0);
+  outline-offset: 3px;
+}
+
+.smPlaceholder {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight: 700;
+  opacity: 0.65;
+}
+
+/* ---------- POSICIONES (mismo “mosaico”) ---------- */
+/* TOP */
+.smWifi      { grid-column: 1 / span 2;  grid-row: 1; }
+.smBluetooth { grid-column: 3 / span 2;  grid-row: 1; }
+.smSsd       { grid-column: 5 / span 2;  grid-row: 1; }
+.smPorts     { grid-column: 7 / span 3;  grid-row: 1; }
+.smPerf      { grid-column: 10 / span 3; grid-row: 1; }
+
+/* MID */
+.smCpu       { grid-column: 1 / span 4;  grid-row: 2; }
+.smGpu       { grid-column: 1 / span 4;  grid-row: 3; }
+
+.smCenter    { grid-column: 5 / span 5;  grid-row: 2 / span 3; padding: 0; }
+.smCenterInner{
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Right */
+.smMemory    { grid-column: 10 / span 3; grid-row: 2; }
+.smBandwidth { grid-column: 10 / span 3; grid-row: 3; }
+
+/* Bottom row */
+.smChips     { grid-column: 1 / span 4;  grid-row: 4; }
+.smQr        { grid-column: 10 / span 1; grid-row: 4; }
+.smOs        { grid-column: 11 / span 2; grid-row: 4; }
+
+.smName        { grid-column: 1 / span 4; grid-row: 5; }
+.smCaption   { grid-column: 5 / span 5;  grid-row: 5; }
+
+/* Ajustes para que el centro se sienta “alto” como el mock */
+.smCenter {
+  min-height: 420px;
+}
+
+/* Responsive: en móvil lo apilamos bonito */
+@media (max-width: 900px) {
+  .smWrap {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .smWifi, .smBluetooth, .smSsd, .smPorts, .smPerf,
+  .smCpu, .smGpu, .smCenter, .smMemory, .smBandwidth,
+  .smChips, .smQr, .smOs, .smCaption, .smName {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+  }
+
+  .smCenter {
+  height: 420px;   /* altura fija, no solo min-height */
+  padding: 0;
+}
+
+.smCenterInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+}
+}
